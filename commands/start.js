@@ -28,7 +28,7 @@ module.exports = {
             const embed = new Discord.MessageEmbed()
                 .setColor('#0099ff')
                 .setAuthor(msg.author.username, msg.author.avatarURL())
-                .addField("Guild", data.guild)
+                .addField("Guild", msg.guild.name)
                 .addField("Balance", 0)
                 .setTimestamp()
                 .attachFiles('./images/pashumba.png')
