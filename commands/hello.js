@@ -10,7 +10,8 @@ module.exports = {
         try {
             console.log(msg.author);
             var role = db.getData("/users/" + msg.author.id);
-            var data = db.getData("/role" + role);
+            var data = db.getData("/role" + role + "/" + msg.author.id);
+
             const embed = new Discord.MessageEmbed()
                 .setColor('#0099ff')
                 .setAuthor(data.nickname, msg.author.avatarURL())
@@ -85,7 +86,7 @@ module.exports = {
                         roleId: roleTaken,
                         roleName: roles[roleTaken]
                     }
-                    db.push("/role" + roleTaken, json);
+                    db.push("/role" + roleTaken + "/" + msg.author.id, json);
                     db.push("/users/" + msg.author.id, roleTaken);
                     const embed = new Discord.MessageEmbed()
                         .setColor('#0099ff')
