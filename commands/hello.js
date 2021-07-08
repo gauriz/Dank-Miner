@@ -70,6 +70,7 @@ module.exports = {
                 let roleTaken = 0;
                 if (message) {
                     roleTaken = parseInt(message.content);
+                    message.react("👍");
                 }
                 if (roleTaken == 16) {
                     clearInterval(intervalThingy);
